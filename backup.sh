@@ -52,6 +52,7 @@ for DATABASE in $BACKUP_DATABASES; do
             --password=$SERVER_DATABASE_PASSWORD \
             --single-transaction \
             --skip-lock-tables \
+            --routines \
             -B \
             $DATABASE | \
             gzip -c | aws s3 cp - "$BACKUP_ARCHIVE_PATH" \
