@@ -53,6 +53,7 @@ for DATABASE in $BACKUP_DATABASES; do
             --single-transaction \
             --skip-lock-tables \
             --routines \
+            --hex-blob \
             -B \
             $DATABASE | \
             gzip -c | aws s3 cp - "$BACKUP_ARCHIVE_PATH" \
